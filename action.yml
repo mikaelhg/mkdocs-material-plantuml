@@ -4,3 +4,5 @@ description: 'Build a mkdocs site with mkdocs-material and plantuml'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - build
