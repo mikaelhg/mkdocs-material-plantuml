@@ -1,5 +1,5 @@
-FROM adoptopenjdk:15-hotspot-bionic AS build
-ARG PLANTUML_VERSION=1.2021.0
+FROM adoptopenjdk:15-hotspot-focal AS build
+ARG PLANTUML_VERSION=1.2021.1
 ENV PLANTUML_URL="https://repo1.maven.org/maven2/net/sourceforge/plantuml/plantuml/${PLANTUML_VERSION}/plantuml-${PLANTUML_VERSION}.jar"
 RUN apt-get -qq update \
     && apt-get -qqy install wget binutils \
@@ -9,7 +9,7 @@ RUN apt-get -qq update \
          --output /opt/customjre
 
 FROM ubuntu:20.04
-ARG PLANTUML_VERSION=1.2021.0
+ARG PLANTUML_VERSION=1.2021.1
 ADD plantuml /usr/local/bin/plantuml
 ADD requirements.txt /tmp/requirements.txt
 COPY --from=build /opt/customjre /opt/customjre
