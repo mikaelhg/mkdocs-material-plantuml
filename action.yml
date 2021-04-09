@@ -3,6 +3,6 @@ name: 'mkdocs-material plantuml build'
 description: 'Build a mkdocs site with mkdocs-material and plantuml'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'Dockerfile.alpine'
   args:
     - build

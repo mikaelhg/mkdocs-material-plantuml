@@ -1,2 +1,2 @@
 #!/bin/sh
-/opt/customjre/bin/java $PLANTUML_JAVAOPTS -Djava.awt.headless=true -jar /usr/local/lib/plantuml.jar ${@}
+/opt/jre/bin/java $PLANTUML_JAVAOPTS -Djava.awt.headless=true -jar /usr/local/lib/plantuml.jar ${@}
