@@ -11,17 +11,11 @@ RUN apk add --no-cache wget binutils \
          --output /opt/customjre
 
 FROM squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION
+RUN apk add --no-cache fontconfig ttf-dejavu
 ADD plantuml /usr/local/bin/plantuml
 RUN pip install --no-cache-dir plantuml-markdown
 COPY --from=BUILD /opt/customjre /opt/jre
 COPY --from=BUILD /usr/local/lib/plantuml.jar /usr/local/lib/plantuml.jar
 ENV PATH=/opt/jre/bin:$PATH
-
-# https://github.com/AdoptOpenJDK/openjdk-docker/issues/75
-RUN apk add --no-cache fontconfig ttf-dejavu
-RUN ln -s /usr/lib/libfontconfig.so.1 /usr/lib/libfontconfig.so && \
-    ln -s /lib/libuuid.so.1 /usr/lib/libuuid.so.1 && \
-    ln -s /lib/libc.musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1
-ENV LD_LIBRARY_PATH /usr/lib
 
 CMD [ "build" ]
