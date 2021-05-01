@@ -14,5 +14,12 @@ docker run --rm -it -v ${PWD}:/docs mikaelhg/mkdocs-material-plantuml
 
 ```yaml
     - name: mkdocs build
-      uses: "docker://mikaelhg/mkdocs-material-plantuml:latest"
+      uses: 'docker://ghcr.io/mikaelhg/mkdocs-material-plantuml:latest'
+```
+
+or
+
+```yaml
+    - name: mkdocs build
+      uses: 'mikaelhg/mkdocs-material-plantuml@v1'
 ```
