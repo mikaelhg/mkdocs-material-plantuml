@@ -21,5 +21,5 @@ or
 
 ```yaml
     - name: mkdocs build
-      uses: 'mikaelhg/mkdocs-material-plantuml@v1'
+      uses: 'mikaelhg/mkdocs-material-plantuml@v4'
 ```
